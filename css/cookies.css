@@ -18,7 +18,7 @@
 .cookies .content {
     padding: 10px 20px;
 }
-.cookies .buttons {
+.cookies .flex-row {
     display: flex;
     flex-direction: row;
 }
@@ -28,6 +28,21 @@
     text-align: center;
     padding: 5px 0;
     margin: auto;
+}
+.cookies .buttons-config {
+    padding: 10px 0;
+}
+.cookies .buttons-config div {
+    width: 75%;
+    border-radius: 15px;
+    text-align: center;
+    padding: 5px 0;
+    margin: auto;
+    background-color: #227E00;
+    border: 1px solid #227E00;
+    color: #ffffff;
+    font-size: 12px;
+    text-transform: uppercase;
 }
 .cookies .buttons .green{
     background-color: #227E00;
@@ -61,8 +76,8 @@
     color: #666666;
 }
 .cookies .links {
-    margin: auto;
     padding: 15px 0;
+    margin: auto;
     text-align: center;
 }
 .cookies .links a {
@@ -81,20 +96,18 @@
     font-size: 12px;
 }
 
-/*
-on/off
-*/
 .switch{
     justify-content: center;
     margin: 42px 0;
 }
 .onoffswitch {
-    margin-top: auto;
     position: relative;
     width: 60px;
     -webkit-user-select:none;
     -moz-user-select:none;
     -ms-user-select: none;
+    margin-left: auto;
+    margin-right: auto;
 }
 .onoffswitch-checkbox {
     position: absolute;
@@ -116,7 +129,7 @@ on/off
     display: block;
     float: left;
     width: 50%;
-    height: 20px;
+    height: 24px;
     padding: 0;
     line-height: 20px;
     font-size: 14px;
@@ -134,25 +147,53 @@ on/off
 .onoffswitch-inner:after {
     content: "";
     padding-right: 10px;
-    background-color: #EEEEEE;
+    background-color: #666666;;
     color: #666666;
     text-align: right;
-}
-.onoffswitch-switch {
-    display: block;
-    width: 18px;
-    margin: 1px;
-    background: #FFFFFF;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 36px;
-    border-radius: 20px;
-    transition: all 0.3s ease-in 0s;
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
     margin-left: 0;
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-    right: 0px;
+    display: flex;
+    width: 22px;
+    margin: 1px 0px 0px 37px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    border-radius: 20px;
+    transition: all 0.3s ease-in 0s;
+    background-image: url(/imgs/check.png);
+    background-repeat: no-repeat;
+    height: 22px;
+    z-index: 10000;
+    background-size: cover;
+}
+
+.onoffswitch-checkbox:not(:checked) + .onoffswitch-label .onoffswitch-switch {
+    display: flex;
+    width: 22px;
+    margin: 1px 0px 0px 1px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    border-radius: 20px;
+    transition: all 0.3s ease-in 0s;
+    background-image: url(/imgs/uncheck.png);
+    background-repeat: no-repeat;
+    height: 22px;
+    z-index: 10000;
+    background-size: cover;
+}
+.pointer {
+    cursor: pointer;
+}
+.close {
+    position: absolute;
+    right: 15px;
+    top: 12px;
+    bottom: 0;
+    margin-left: auto;
+    height: 33px;
+    z-index: 10;
 }
