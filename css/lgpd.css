@@ -1,8 +1,8 @@
-.cookies{
+.lgpd_wd{
     z-index:100;
     color: #666666;
 }
-.cookies.box {
+.lgpd_wd.box {
     border: 1px solid transparent;
     border-radius: 15px;
     box-shadow: 0px 0px 35px -14px rgba(0,0,0,0.64);
@@ -15,24 +15,24 @@
     max-width: 410px;
     margin: auto;
 }
-.cookies .content {
+.lgpd_wd .content {
     padding: 10px 20px;
 }
-.cookies .flex-row {
+.lgpd_wd .flex-row {
     display: flex;
     flex-direction: row;
 }
-.cookies .buttons div {
+.lgpd_wd .buttons div {
     width: 120px;
     border-radius: 15px;
     text-align: center;
     padding: 5px 0;
     margin: auto;
 }
-.cookies .buttons-config {
+.lgpd_wd .buttons-config {
     padding: 10px 0;
 }
-.cookies .buttons-config div {
+.lgpd_wd .buttons-config div {
     width: 75%;
     border-radius: 15px;
     text-align: center;
@@ -44,63 +44,63 @@
     font-size: 12px;
     text-transform: uppercase;
 }
-.cookies .buttons .green{
+.lgpd_wd .buttons .green{
     background-color: #227E00;
     border: 1px solid #227E00;
 }
-.cookies .buttons .green div{
+.lgpd_wd .buttons .green div{
     color: #ffffff;
     font-size: 12px;
     text-transform: uppercase;
 }
-.cookies .buttons .gray{
+.lgpd_wd .buttons .gray{
     background-color: #fff;
     border: 1px solid #666666;
 }
-.cookies .buttons .gray div{
+.lgpd_wd .buttons .gray div{
     color: #666666;
     font-size: 12px;
     text-transform: uppercase;
 }
-.cookies .title{
+.lgpd_wd .title{
     text-align: center;
     font-size: 16px;
     font-weight: 700;
     color: #666666;
     padding-bottom: 15px;
 }
-.cookies .text{
+.lgpd_wd .text{
     text-align: center;
     font-size: 12px;
     font-weight: 400;
     color: #666666;
 }
-.cookies .links {
+.lgpd_wd .links {
     padding: 15px 0;
     margin: auto;
     text-align: center;
 }
-.cookies .links a {
+.lgpd_wd .links a {
     color: #227E00;
     font-size: 12px;
     text-decoration: underline;
 }
-.cookies .infos {
+.lgpd_wd .infos {
     padding-bottom: 20px ;
 }
-.cookies .config_title {
+.lgpd_wd .config_title {
     font-size: 12px;
     font-weight: 700;
 }
-.cookies .config_text {
+.lgpd_wd .config_text {
     font-size: 12px;
 }
 
-.switch{
+.lgpd_wd .switch{
     justify-content: center;
     margin: 42px 0;
 }
-.onoffswitch {
+.lgpd_wd .onoffswitch {
     position: relative;
     width: 60px;
     -webkit-user-select:none;
@@ -109,23 +109,23 @@
     margin-left: auto;
     margin-right: auto;
 }
-.onoffswitch-checkbox {
+.lgpd_wd .onoffswitch-checkbox {
     position: absolute;
     opacity: 0;
     pointer-events: none;
 }
-.onoffswitch-label {
+.lgpd_wd .onoffswitch-label {
     display: block;
     overflow: hidden;
     cursor: pointer;
     border-radius: 20px;
 }
-.onoffswitch-inner {
+.lgpd_wd .onoffswitch-inner {
     display: block; width: 200%;
     margin-left: -100%;
     transition: margin 0.3s ease-in 0s;
 }
-.onoffswitch-inner:before, .onoffswitch-inner:after {
+.lgpd_wd .onoffswitch-inner:before, .onoffswitch-inner:after {
     display: block;
     float: left;
     width: 50%;
@@ -138,23 +138,23 @@
     font-weight: bold;
     box-sizing: border-box;
 }
-.onoffswitch-inner:before {
+.lgpd_wd .onoffswitch-inner:before {
     content: "";
     padding-left: 10px;
     background-color: #227E00;
     color: #FFFFFF;
 }
-.onoffswitch-inner:after {
+.lgpd_wd .onoffswitch-inner:after {
     content: "";
     padding-right: 10px;
     background-color: #666666;;
     color: #666666;
     text-align: right;
 }
-.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+.lgpd_wd .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
     margin-left: 0;
 }
-.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+.lgpd_wd .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
     display: flex;
     width: 22px;
     margin: 1px 0px 0px 37px;
@@ -170,7 +170,7 @@
     background-size: cover;
 }
 
-.onoffswitch-checkbox:not(:checked) + .onoffswitch-label .onoffswitch-switch {
+.lgpd_wd .onoffswitch-checkbox:not(:checked) + .onoffswitch-label .onoffswitch-switch {
     display: flex;
     width: 22px;
     margin: 1px 0px 0px 1px;
@@ -185,10 +185,10 @@
     z-index: 10000;
     background-size: cover;
 }
-.pointer {
+.lgpd_wd .pointer {
     cursor: pointer;
 }
-.close {
+.lgpd_wd .close {
     position: absolute;
     right: 15px;
     top: 12px;

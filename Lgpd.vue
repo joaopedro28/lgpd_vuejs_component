@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="cookies box" v-show="box">
+        <div class="lgpd_wd box" v-show="box">
             <div v-if="config_cookies" class="content">
                 <div class="title">Controle sua privacidade</div>
                 <div class="text">Utilizamos cookies com objetivo de prover a melhor experiência no uso de nossos serviços. Ao clicar em “Aceitar”, concorda com a utilização de TODOS os cookies.</div>
@@ -11,7 +11,7 @@
                     <div class="gray pointer" v-on:click="config_cookies = false, cookies_options = true">
                         <div>Configurações</div>
                     </div>
-                    <div class="green pointer" v-on:click="SaveLGPD()">
+                    <div class="green pointer" v-on:click="SaveAllLGPD()">
                         <div>Aceito</div>
                     </div>
                 </div>
@@ -27,13 +27,13 @@
                         <div class="title">Controle sua privacidade</div>
                     </div>
                     <div class="col-xs-8 infos">
-                        <div class="config_title">Cookies Essenciais</div>
-                        <div class="config_text">Esses cookies permitem funcionalidades essências, tais como segurança, verificação de identidade e gestão de rede. Esses cookies não podem ser desativados.</div>
+                        <div class="config_title">Cookies essenciais e funcionais</div>
+                        <div class="config_text">{{essential_text}}</div>
                     </div>
                     <div class="col-xs-4 switch">
                         <div>
                             <div class="onoffswitch">
-                                <input type="checkbox" disabled name="onoffswitch" class="onoffswitch-checkbox" v-model="essenciais" id="myonoffswitch1"  tabindex="0" checked>
+                                <input type="checkbox" disabled name="onoffswitch" class="onoffswitch-checkbox" v-model="essential" id="myonoffswitch1"  tabindex="0" checked>
                                 <label class="onoffswitch-label" for="myonoffswitch1">
                                     <span class="onoffswitch-inner"></span>
                                     <span class="onoffswitch-switch"></span>
@@ -42,8 +42,24 @@
                         </div>
                     </div>
                     <div class="col-xs-8 infos">
+                        <div class="config_title">Cookies de desempenho e analíticos</div>
+                        <div class="config_text">{{analytics_text}}</div>
+
+                    </div>
+                    <div class="col-xs-4 switch">
+                        <div>
+                            <div class="onoffswitch">
+                                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" v-model="analytics" id="myonoffswitch3" tabindex="0" >
+                                <label class="onoffswitch-label" for="myonoffswitch3">
+                                    <span class="onoffswitch-inner"></span>
+                                    <span class="onoffswitch-switch"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-8 infos">
                         <div class="config_title">Cookies de marketing</div>
-                        <div class="config_text">Esses cookies são usados para rastrear a eficácia da publicidade, fornecer um serviço mais relevante e anúncios melhores para atender aos seus interesses.</div>
+                        <div class="config_text">{{marketing_text}}</div>
                     </div>
                     <div class="col-xs-4 switch">
                         <div>
@@ -56,28 +72,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-8 infos">
-                        <div class="config_title">Cookies funcionais</div>
-                        <div class="config_text">Esses cookies coletam dados para lembrar escolas que os usuários fazem e para melhorar e proporcionar uma experiência mais personalizada.</div>
-                    </div>
-                    <div class="col-xs-4 switch">
-                        <div>
-                            <div class="onoffswitch">
-                                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" v-model="funcionais" id="myonoffswitch3" tabindex="0" >
-                                <label class="onoffswitch-label" for="myonoffswitch3">
-                                    <span class="onoffswitch-inner"></span>
-                                    <span class="onoffswitch-switch"></span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <div class="flex-row">
                     <div class="links">
                         <a href="/politica-de-privacidade" >Política de privacidade</a>
                     </div>
                     <div class="links ">
-                        <a href="/politica-de-privacidade" >Política dos cookies</a>
+                        <a href="/politica-de-cookies" >Política dos cookies</a>
                     </div>
                 </div>
                 <div class="buttons-config">
@@ -94,38 +95,65 @@
 import Cookies from 'js-cookie';
 
 export default {
+    props:{
+        essential_text:{
+            required:false,
+            default:'Esses cookies permitem funcionalidades essências, tais como segurança, verificação de identidade e gestão de rede. Esses cookies não podem ser desativados.'
+        },
+        analytics_text:{
+            required:false,
+            default:'Esses cookies coletam dados para lembrar escolhas que os usuários fazem e para melhorar e proporcionar uma experiência mais personalizada.'
+        },
+        marketing_text:{
+            required:false,
+            default:'Esses cookies são usados para rastrear a eficácia da publicidade, fornecer um serviço mais relevante e anúncios melhores para atender aos seus interesses.'
+        },
+    },
     data() {
         return {
             config_cookies: true,
             cookies_options:false,
             accept:true,
-            essenciais:true,
-            marketing:true,
-            funcionais:true,
+            essential:true,
+            marketing:'',
+            analytics:'',
             box:false
         }
     },
     mounted() {
+        this.analytics = true
+        this.marketing = true
+        if (Cookies.get('lgpd_load_marketing') != undefined) {
+            this.marketing = Cookies.get('lgpd_load_marketing') == 'true' ? true : false
+            this.analytics = Cookies.get('lgpd_load_analytics') == 'true' ? true : false
+        }
+
         setTimeout(() => {
             this.box = true;
             if (Cookies.get('lgpd') == 'true' || sessionStorage.getItem("lgpd_config") == 'true'){
                 this.box = false
             }
-        }, 3000);
+        }, 2000);
+        this.$nuxt.$on("openModal", () => {
+            this.box = true;
+        });
     },
     methods: {
         SaveLGPD() {
             sessionStorage.setItem("lgpd_config", false)
-            Cookies.set('lgpd_load_functional', this.funcionais )
+            Cookies.set('lgpd_load_analytics', this.analytics )
             Cookies.set('lgpd_load_marketing', this.marketing )
-            if (this.marketing == true || this.funcionais == true) {
-                sessionStorage.setItem("lgpd_config", true)
-            }
-            if (this.marketing == true && this.funcionais == true) {
+            sessionStorage.setItem("lgpd_config", true)
+            if (this.marketing == true && this.analytics == true) {
                 Cookies.set('lgpd', true)
             }
             location.reload()
             this.closeBox()
+        },
+        SaveAllLGPD() {
+            this.marketing = true
+            this.analytics = true
+            this.SaveLGPD()
         },
         closeBox() {
             this.accept =false
