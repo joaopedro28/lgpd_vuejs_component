@@ -25,7 +25,8 @@ Para usar corretamente basta fazer uma verificação das variáveis antes de ati
 
 ## Exemplo de uso no wdshop:
 
-#####Layouts
+##### Layouts
+
 **_default.vue_**
 ```
 import Lgpd from '~/components/Lgpd/Lgpd.vue';
@@ -81,7 +82,9 @@ O componente também permite a opção de mudança nos textos usando as seguinte
 
 Basta chamar a props no componente e passar o texto:
 
+``` 
 <Lgpd :marketing_text="Novo texto" />
+```
 
 ## License
 
