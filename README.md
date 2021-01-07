@@ -73,17 +73,27 @@ mounted(){
 ``` 
 
 ## Props
+ ##### Nenhuma das props é obrigatória
+
+Para se definir os links corretos das páginas de "Política de privacidade"  e "Política de cookies": 
+    * se deixar vazio essas props os links não irão aparecer no modal do componente.
+
+- privacy_policy_link
+- cookies_policy_link
 
 O componente também permite a opção de mudança nos textos usando as seguintes props:
-
+    * Se deixar vazio essas props os texto serão os padrões já determinados no componente.  
+    
 - essential_text
 - analytics_text
 - marketing_text
 
+##### Exemplo de uso do componente com as props:
+
 Basta chamar a props no componente e passar o texto:
 
 ``` 
-<Lgpd :marketing_text="Novo texto" />
+<Lgpd :marketing_text="Novo texto" :cookies_policy_link="/politica-de-cookies" />
 ```
 
 ## License

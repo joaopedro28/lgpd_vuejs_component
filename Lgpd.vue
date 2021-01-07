@@ -5,7 +5,7 @@
                 <div class="title">Controle sua privacidade</div>
                 <div class="text">Utilizamos cookies com objetivo de prover a melhor experiência no uso de nossos serviços. Ao clicar em “Aceitar”, concorda com a utilização de TODOS os cookies.</div>
                 <div class="links">
-                    <a href="/politica-de-privacidade" >Política de privacidade</a>
+                    <a :href="privacy_policy_link" v-if="privacy_policy_link">Política de privacidade</a>
                 </div>
                 <div class="flex-row buttons">
                     <div class="gray pointer" v-on:click="config_cookies = false, cookies_options = true">
@@ -73,12 +73,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex-row">
-                    <div class="links">
-                        <a href="/politica-de-privacidade" >Política de privacidade</a>
+                <div class="flex-row align-items-center" v-if="privacy_policy_link || cookies_policy_link" >
+                    <div class="links" v-if="privacy_policy_link">
+                        <a :href="privacy_policy_link" >Política de privacidade</a>
                     </div>
-                    <div class="links ">
-                        <a href="/politica-de-cookies" >Política dos cookies</a>
+                    <div class="links " v-if="cookies_policy_link">
+                        <a :href="cookies_policy_link" >Política dos cookies</a>
                     </div>
                 </div>
                 <div class="buttons-config">
@@ -108,6 +108,14 @@ export default {
             required:false,
             default:'Esses cookies são usados para rastrear a eficácia da publicidade, fornecer um serviço mais relevante e anúncios melhores para atender aos seus interesses.'
         },
+        privacy_policy_link: {
+            require:false,
+            default:false
+        },
+        cookies_policy_link: {
+            require:false,
+            default:false
+        }
     },
     data() {
         return {
