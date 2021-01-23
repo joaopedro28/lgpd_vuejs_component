@@ -1,8 +1,10 @@
+
 .lgpd_wd{
+    font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
     z-index:100;
-    color: #666666;
+    color: #353535;
 }
-.lgpd_wd.box {
+.lgpd_wd_box {
     border: 1px solid transparent;
     border-radius: 15px;
     box-shadow: 0px 0px 35px -14px rgba(0,0,0,0.64);
@@ -14,26 +16,56 @@
     min-width: 320px;
     max-width: 410px;
     margin: auto;
+    z-index: 9999;
 }
-.lgpd_wd .content {
+.lgpd_wd_content {
     padding: 10px 20px;
 }
-.lgpd_wd .flex-row {
+.lgpd_wd_mx-20 {
+    margin: 0 20px;
+}
+.lgpd_wd_my-20 {
+    margin: 20px 0;
+}
+.lgpd_wd_my-auto {
+    margin: 0 auto;
+}
+.lgpd_wd_mx-auto {
+    margin: auto 0;
+}
+.lgpd_wd_width-80 {
+    width: 80%;
+}
+.lgpd_wd_width-100 {
+    width: 100%;
+}
+.lgpd_wd_display-flex {
+    display: flex;
+}
+.lgpd_wd_flex-column {
+    flex-direction: column;
+}
+.lgpd_wd_flex-row {
     display: flex;
     flex-direction: row;
 }
-.lgpd_wd .buttons div {
+.lgpd_wd_flex-row {
+    display: flex;
+    flex-direction: row;
+}
+.lgpd_wd_text-bold {
+    font-weight: 700;;
+}
+.lgpd_wd_buttons div {
     width: 120px;
     border-radius: 15px;
     text-align: center;
     padding: 5px 0;
     margin: auto;
+    font-family: sans-serif, Verdana, Geneva, Tahoma
 }
-.lgpd_wd .buttons-config {
-    padding: 10px 0;
-}
-.lgpd_wd .buttons-config div {
-    width: 75%;
+.lgpd_wd_buttons-config div {
+    width: 180px;
     border-radius: 15px;
     text-align: center;
     padding: 5px 0;
@@ -43,64 +75,66 @@
     color: #ffffff;
     font-size: 12px;
     text-transform: uppercase;
+    font-family: sans-serif, Verdana, Geneva, Tahoma
 }
-.lgpd_wd .buttons .green{
+.lgpd_wd_buttons_green{
     background-color: #227E00;
     border: 1px solid #227E00;
 }
-.lgpd_wd .buttons .green div{
+.lgpd_wd_buttons_green div{
     color: #ffffff;
     font-size: 12px;
     text-transform: uppercase;
 }
-.lgpd_wd .buttons .gray{
+.lgpd_wd_buttons_gray{
     background-color: #fff;
-    border: 1px solid #666666;
+    border: 1px solid #353535;
 }
-.lgpd_wd .buttons .gray div{
-    color: #666666;
+.lgpd_wd_buttons_gray div{
+    color: #353535;
     font-size: 12px;
     text-transform: uppercase;
 }
-.lgpd_wd .title{
+.lgpd_wd_title{
     text-align: center;
     font-size: 16px;
     font-weight: 700;
-    color: #666666;
+    color: #353535;
     padding-bottom: 15px;
 }
-.lgpd_wd .text{
+.lgpd_wd_text{
     text-align: center;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
-    color: #666666;
+    color: #353535;
+    font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
 }
-.lgpd_wd .links {
-    padding: 15px 0;
+.lgpd_wd_links {
+    padding: 0 0 15px 0;
     margin: auto;
     text-align: center;
 }
-.lgpd_wd .links a {
+.lgpd_wd_links a {
     color: #227E00;
     font-size: 12px;
     text-decoration: underline;
 }
-.lgpd_wd .infos {
+.lgpd_wd_infos {
     padding-bottom: 20px ;
 }
-.lgpd_wd .config_title {
+.lgpd_wd_config_title {
     font-size: 12px;
     font-weight: 700;
 }
-.lgpd_wd .config_text {
+.lgpd_wd_config_text {
     font-size: 12px;
 }
-
-.lgpd_wd .switch{
+.lgpd_wd_switch{
+    display: flex;
+    align-items: center;
     justify-content: center;
-    margin: 42px 0;
 }
-.lgpd_wd .onoffswitch {
+.lgpd_wd_onoffswitch {
     position: relative;
     width: 60px;
     -webkit-user-select:none;
@@ -109,23 +143,23 @@
     margin-left: auto;
     margin-right: auto;
 }
-.lgpd_wd .onoffswitch-checkbox {
+.lgpd_wd_onoffswitch-checkbox {
     position: absolute;
     opacity: 0;
     pointer-events: none;
 }
-.lgpd_wd .onoffswitch-label {
+.lgpd_wd_onoffswitch-label {
     display: block;
     overflow: hidden;
     cursor: pointer;
     border-radius: 20px;
 }
-.lgpd_wd .onoffswitch-inner {
+.lgpd_wd_onoffswitch-inner {
     display: block; width: 200%;
     margin-left: -100%;
     transition: margin 0.3s ease-in 0s;
 }
-.lgpd_wd .onoffswitch-inner:before, .onoffswitch-inner:after {
+.lgpd_wd_onoffswitch-inner:before, .lgpd_wd_onoffswitch-inner:after {
     display: block;
     float: left;
     width: 50%;
@@ -138,23 +172,23 @@
     font-weight: bold;
     box-sizing: border-box;
 }
-.lgpd_wd .onoffswitch-inner:before {
+.lgpd_wd_onoffswitch-inner:before {
     content: "";
     padding-left: 10px;
     background-color: #227E00;
     color: #FFFFFF;
 }
-.lgpd_wd .onoffswitch-inner:after {
+.lgpd_wd_onoffswitch-inner:after {
     content: "";
     padding-right: 10px;
-    background-color: #666666;;
-    color: #666666;
+    background-color: #353535;
+    color: #353535;
     text-align: right;
 }
-.lgpd_wd .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+.lgpd_wd_onoffswitch-checkbox:checked + .lgpd_wd_onoffswitch-label .lgpd_wd_onoffswitch-inner {
     margin-left: 0;
 }
-.lgpd_wd .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+.lgpd_wd_onoffswitch-checkbox:checked +.lgpd_wd_onoffswitch-label .lgpd_wd_onoffswitch-switch {
     display: flex;
     width: 22px;
     margin: 1px 0px 0px 37px;
@@ -163,14 +197,13 @@
     bottom: 0;
     border-radius: 20px;
     transition: all 0.3s ease-in 0s;
-    background-image: url(/imgs/check.png);
+    background-image: url(.././imgs/check.png);
     background-repeat: no-repeat;
     height: 22px;
     z-index: 10000;
     background-size: cover;
 }
-
-.lgpd_wd .onoffswitch-checkbox:not(:checked) + .onoffswitch-label .onoffswitch-switch {
+.lgpd_wd_onoffswitch-checkbox:not(:checked) + .lgpd_wd_onoffswitch-label .lgpd_wd_onoffswitch-switch {
     display: flex;
     width: 22px;
     margin: 1px 0px 0px 1px;
@@ -179,16 +212,16 @@
     bottom: 0;
     border-radius: 20px;
     transition: all 0.3s ease-in 0s;
-    background-image: url(/imgs/uncheck.png);
+    background-image: url(.././imgs/uncheck.png);
     background-repeat: no-repeat;
     height: 22px;
     z-index: 10000;
     background-size: cover;
 }
-.lgpd_wd .pointer {
+.lgpd_wd_pointer {
     cursor: pointer;
 }
-.lgpd_wd .close {
+.lgpd_wd_close {
     position: absolute;
     right: 15px;
     top: 12px;
@@ -197,3 +230,21 @@
     height: 33px;
     z-index: 10;
 }
+.lgpd_wd_opacity-label {
+    opacity: 0.6;
+}
+.lgpd_wd_config {
+    position: fixed;
+    bottom: 0px;
+    left: 0;
+    background: #fff;
+    padding: 5px;
+    margin: 19px;
+    height: fit-content;
+    border-radius: 30px;
+    box-shadow: #000;
+    -webkit-box-shadow: -7px 8px 60px -9px rgba(0,0,0,0.66);
+    -moz-box-shadow: -7px 8px 60px -9px rgba(0,0,0,0.66);
+    box-shadow: -4px 7px 24px -7px rgba(0,0,0,1);
+}
+
