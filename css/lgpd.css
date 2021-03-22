@@ -181,8 +181,8 @@
 .lgpd_wd_onoffswitch-inner:after {
     content: "";
     padding-right: 10px;
-    background-color: #353535;
-    color: #353535;
+    background-color: #B7B7B7;
+    color: #B7B7B7;
     text-align: right;
 }
 .lgpd_wd_onoffswitch-checkbox:checked + .lgpd_wd_onoffswitch-label .lgpd_wd_onoffswitch-inner {
