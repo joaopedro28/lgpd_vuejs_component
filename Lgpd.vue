@@ -1,6 +1,6 @@
 <template>
     <div>
-        <client-only>
+        <!-- <client-only> -->
             <div class="lgpd_wd_box" v-if="box">
                 <div v-if="config_cookies" class="lgpd_wd_content">
                     <div class="lgpd_wd_title">{{title}}</div>
@@ -111,7 +111,7 @@
                     </a>
                 </div>
             </div>
-        </client-only>
+        <!-- </client-only> -->
     </div>
 </template>
 <style scoped src="./css/lgpd.css" lang="css"></style>
@@ -222,7 +222,7 @@ export default {
             if (this.marketing == true && this.analytics == true) {
                 Cookies.set('lgpd', true, { expires: 7} )
             }
-            // location.reload()
+            location.reload()
             this.closeBox()
         },
         SaveAllLGPD() {
