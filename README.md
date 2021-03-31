@@ -1,12 +1,12 @@
 # Componente LGPD 
 
 Componente para atender as demandas da Lei Geral de Proteção de Dados
-
+#
 ## Dependencias
 
 - Nuxt;
 - Pacote npm "js-cookie"; 
-
+#
 ## Como Aplicar
 
 O componente ira gerar os seguintes Cookies : 
@@ -22,7 +22,7 @@ Que é possível fazer um get da seguinte forma:
 Eles retornam true ou false, dependendo da escolha do usuário na hora de aceitar os cookies.
 
 Para usar corretamente basta fazer uma verificação das variáveis antes de ativar o uso das ferramentas de analytics e marketing.
-
+#
 ## Exemplo de uso no wdshop:
 
 ##### Layouts
@@ -79,29 +79,80 @@ mounted(){
 },
 ...
 ``` 
-
+#
 ## Props
- ##### Nenhuma das props é obrigatória
+- #### Nenhuma das props é obrigatória
 
-Para se definir os links corretos das páginas de "Política de privacidade"  e "Política de cookies": 
-    * se deixar vazio essas props os links não irão aparecer no modal do componente.
+### Props que são String:
+
+Título principal do componente
 ```
-    :privacy_policy_link
-    :cookies_policy_link
+    <Lgpd :title="" />
 ```
-O componente também permite a opção de mudança nos textos usando as seguintes props:
-    * Se deixar vazio essas props os texto serão os padrões já determinados no componente.    
+ - default = Controle sua privacidade 
+
+
+Texto principal do componente
 ```
-    :essential_text
-    :analytics_text
-    :marketing_text
+    <Lgpd :text="" />
 ```
-Opção de botão de configuração do Componente de LGPD. Essa prop aceita true ou false. Se for colocado como true toda vez que o modal estiver fechado, ou seja as configurações desejadas forem salvas, irá aparecer no canto esquerdo da tela um botão para configurar novamento as opções do componente.
+ - default = Utilizamos cookies com objetivo de prover a melhor experiência no uso de nossos serviços. Ao clicar em “Aceitar”, concorda com a utilização de TODOS os cookies.
+
+### Props que são Object:
+
+Textos internos de configurações
+
 ```
-    :config_button 
+    <Lgpd :essential_texts="" />
+    <Lgpd :marketing_texts="" />
+    <Lgpd :analytics_texts="" />
+
+    Exemlo de objeto:
+    
+    { 
+        title: 'Cookies de marketing',
+        text:  'Esses cookies são usados para rastrear a eficácia da publicidade, fornecer um serviço mais relevante e anúncios melhores para atender aos seus interesses.'
+    }
+```
+
+Texto e link das opções de Políticas
+```
+    <Lgpd :privacy_policy="" />
+    <Lgpd :cookies_policy="" />
+
+    Exemlo de objeto:
+    
+    { 
+        title: 'Política de cookies',
+        link:  '/politica-de-privacidade'
+    }
+```
+* se deixar vazio essas props os links não irão aparecer no modal do componente.
+
+
+Texto dos botões do componente:
+```
+    <Lgpd :buttons="" />
+
+    Exemlo de objeto:
+    
+    { 
+        config:'Configurações',
+        accept:'Aceito',
+        save_accept:'Aceitar e salvar'
+    }
+```
+
+### Props que são Boolean:
+
+Opção de botão de configuração do Componente de LGPD.  Se for colocado como true, toda vez que o modal estiver fechado, ou seja as configurações desejadas forem salvas, irá aparecer no canto esquerdo da tela um botão para configurar novamente as opções do componente.
+```
+        <Lgpd :config_button="true" />
 ``` 
-Uma configuração personalizada para abrir o modal novamente seguindo as orientações descritas no próximo bloco:
 
+- default= false
+
+#
 ## Methods
 
 ### Configuração personalizada para ativar o modal
@@ -115,20 +166,11 @@ Para configurar do jeito que quiser o seu botão para ativar o modal novamente b
         this.$nuxt.$emit('openModal', true)
     }
 ```
-
-##### Exemplo de uso do componente com as props:
-
-Basta chamar a props no componente e passar o texto:
-
-``` 
-<Lgpd :marketing_text="Novo texto" :cookies_policy_link="/politica-de-cookies" />
-```
-
-
+#
 ## Comentários sobre o código
 
 
-##### Salvamento das opções e como evitar o recarregamento da página
+### Salvamento das opções e como evitar o recarregamento da página
 
 
 ```
@@ -159,7 +201,7 @@ Só vai recarrecar a página se um deles for desativado.
 
 
 
-
+# 
 ## License
 
 WdHouse 
