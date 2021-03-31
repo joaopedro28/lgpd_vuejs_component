@@ -214,21 +214,28 @@ export default {
         });
     },
     methods: {
-        SaveLGPD() {
+        SaveLGPD(all=false) {
             sessionStorage.setItem("lgpd_config", false)
+            let Before_lgpd_marketing = Cookies.get('lgpd_load_marketing')
+            let Before_lgpd_analytics = Cookies.get('lgpd_load_analytics')
             Cookies.set('lgpd_load_analytics', this.analytics, { expires: 7} )
             Cookies.set('lgpd_load_marketing', this.marketing, { expires: 7} )
             sessionStorage.setItem("lgpd_config", true)
             if (this.marketing == true && this.analytics == true) {
                 Cookies.set('lgpd', true, { expires: 7} )
+                if ((Before_lgpd_analytics === undefined && Before_lgpd_marketing === undefined) || (Before_lgpd_analytics === 'true' && Before_lgpd_marketing === 'true') ) {
+                    all = true
+                }
             }
-            location.reload()
+            if(!all) {
+                location.reload()
+            }            
             this.closeBox()
         },
         SaveAllLGPD() {
             this.marketing = true
             this.analytics = true
-            this.SaveLGPD()
+            this.SaveLGPD(true)
         },
         closeBox() {
             this.box =false

@@ -124,6 +124,42 @@ Basta chamar a props no componente e passar o texto:
 <Lgpd :marketing_text="Novo texto" :cookies_policy_link="/politica-de-cookies" />
 ```
 
+
+## Comentários sobre o código
+
+
+##### Salvamento das opções e como evitar o recarregamento da página
+
+
+```
+SaveLGPD(all=false) {
+    sessionStorage.setItem("lgpd_config", false)
+    let Before_lgpd_marketing = Cookies.get('lgpd_load_marketing')
+    let Before_lgpd_analytics = Cookies.get('lgpd_load_analytics')
+    Cookies.set('lgpd_load_analytics', this.analytics, { expires: 7} )
+    Cookies.set('lgpd_load_marketing', this.marketing, { expires: 7} )
+    sessionStorage.setItem("lgpd_config", true)
+    if (this.marketing == true && this.analytics == true) {
+        Cookies.set('lgpd', true, { expires: 7} )
+        if ((Before_lgpd_analytics === undefined && Before_lgpd_marketing === undefined) || (Before_lgpd_analytics === 'true' && Before_lgpd_marketing === 'true') ) {
+            all = true
+        }
+    }
+    if(!all) {
+        location.reload()
+    }            
+    this.closeBox()
+},
+```
+
+Esse trecho do código foi adaptado assumindo que as ferramentas que irão precisar de autorização do usuário ja comecem iniciadas, mesmo que nenhuma configuração no componente tenha sido feita. Assim ele verifica se os cookies ja foram definidos ou não para tomar a decisão de fazer o recaregamento da página.
+Se os cookies estavam indefinidos, ou seja primeira vez no site e clicou no botão de configurações e aceitou com todas opções aceitas ele não recarrega a página ou se ele ja aceitou os cookies mas clicou para configurar e deixou tudo aceito de novo, ainda sim não recarrega a página.
+Se o usuário clicar no primeiro botão de aceito, a página tambem não vai ser recarregada e irá setar os cookies para guardar a informação.
+Só vai recarrecar a página se um deles for desativado.
+
+
+
+
 ## License
 
 WdHouse 
